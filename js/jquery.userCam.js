@@ -25,17 +25,13 @@
         };
 
         _this.success = function (stream) {
-            if (window.webkitURL) {
-                stream = window.webkitURL.createObjectURL(stream);
-            }
-
             $video = $('<video>');
             _this.video = $video.get(0);
 
             $video.on('play', _this.startedPlaying);
 
             _this.video.autoplay = true;
-            _this.video.src = stream;
+            _this.video.srcObject = stream;
 
             $video.appendTo(_this.element);
         };
